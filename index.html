@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<!-- time picker -->
+<link href="mdtimepicker.min.css" rel="stylesheet">
+<title>Layer email system</title>
+</head>
+<body>
+
+    <div class="journey-wraper container-fluid">
+        <div class="journey-header">
+            <div class="row">
+                <div class="col-6">
+                    <div class="d-flex align-items-center">
+                        <input type="text" class="journey-name-input" value="Untitled">
+                        <div class="status">Draft</div>
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <button class="btn journey-save-btn">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="journey-body">
+
+
+            <div class="journey-box">
+                <div class="journey-box-header">
+                    <h5><i class="fas fa-hand-point-right mr-2"></i>Journey entry</h5>
+                </div>
+                <div class="journey-box-body">
+                    <div>
+                        <p class="settings-form-label">Choose how to start the journey:</p>
+                        <select id="journey-start-select" class="form-control">
+                            <option selected>Select an option</option>
+                            <option>When enter on layer 1</option>
+                            <option>When enter on layer 2</option>
+                            <option>When enter on layer 3</option>
+                            <option>When enter on layer 4</option>
+                            <option>When enter on layer 5</option>
+                            <option>If inactive for 24 hours</option>
+                            <option>If inactive for 48 hours</option>
+                            <option>If inactive for 7 days</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="show-seetings-box show-action-seeting">
+                    <div><i class="fas fa-plus"></i></div>
+                    <p>Add an action</p>
+                </div>
+
+            </div>
+
+
+
+<!-- Actions -->
+            <div class="journey-box-settings-box send-an-email-box">
+                <div class="journey-box-header py-3">
+                    <h6><i class="fas fa-bolt mr-2"></i>Action</h6>
+                </div>
+                <div class="settings-form">
+                    <p class="settings-form-label">Choose how to start the journey:</p>
+                    <select class="form-control select-action-select">
+                        <option name="select" selected>Select an option</option>
+                        <option name="email">Send email</option>
+                        <option name="action2">Action2</option>
+                        <option name="action3">Action3</option>
+                        <option disabled>Action4</option>
+                        <option disabled>Action5</option>
+                    </select>
+                </div>
+
+                <div class="show-seetings-box show-email-seeting">
+                    <div><i class="fas fa-plus"></i></div>
+                    <p>Add email details</p>
+                </div>
+                <!-- <div class="show-seetings-box show-action2-seeting">
+                    <div><i class="fas fa-plus"></i></div>
+                    <p>Add action2 details</p>
+                </div>
+                <div class="show-seetings-box show-action3-seeting">
+                    <div><i class="fas fa-plus"></i></div>
+                    <p>Add action3 details</p>
+                </div> -->
+
+
+            </div>
+
+
+        <!-- Email details -->
+        <div>
+            <div class="journey-box-settings-box email-seeting-box">
+                <div class="journey-box-header py-3">
+                    <h6><i class="fas fa-info-circle mr-2"></i>Email details</h6>
+                </div>
+                <div class="settings-form">
+                    <div class="mb-3">
+                        <p class="settings-form-label">Sender email address:</p>
+                        <input class="form-control" type="text" placeholder="example@xyz.com">
+                    </div>
+                    <div class="mb-3">
+                        <p class="settings-form-label">Enter email subject:</p>
+                        <input class="form-control" type="text" placeholder="Subject">
+                    </div>
+                    <div class="mb-3">
+                        <p class="settings-form-label">Enter email description:</p>
+                        <textarea class="form-control" placeholder="Description"></textarea>
+                    </div>
+                </div>
+                <div class="show-seetings-box show-email-schedule">
+                    <div><i class="fas fa-plus"></i></div>
+                    <p>Add email schedule</p>
+                </div>
+            </div>
+
+
+            <div class="journey-box-settings-box email-schedule-box">
+                <div class="journey-box-header py-3">
+                    <h6><i class="fas fa-clock mr-2"></i>Schedule</h6>
+                </div>
+                <div class="settings-form">
+
+                    <div class="mb-3">
+                        <p class="settings-form-label">Choose how often you want to send the email:</p>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="daySchedule">Only one time 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="daySchedule">Everyday
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="daySchedule">Every week
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="daySchedule">Every month
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <p class="settings-form-label">Set the time user recieve the email:</p>
+                        <input type="text" id="scedulertimepicker" />
+                    </div>
+
+                </div>
+                <div class="show-seetings-box show-email-attachment">
+                    <div><i class="fas fa-plus"></i></div>
+                    <p>Add recommandations</p>
+                </div>
+            </div>
+
+
+            <div class="journey-box-settings-box email-attachment-box">
+                <div class="journey-box-header py-3">
+                    <h6><i class="fas fa-paperclip mr-2"></i></i>Recommendations</h6>
+                </div>
+                <div class="settings-form">
+                    <div class="mb-3">
+                        <p class="settings-form-label">What you want to recommand with email:</p>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input id="journey-reccom-post" type="checkbox" class="form-check-input" value="post">Posts
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input id="journey-reccom-courses" type="checkbox" class="form-check-input" value="course">Courses
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3 numberOfPosts">
+                        <p class="settings-form-label">Number of recommandations:</p>
+                        <input class="form-control" type="number" placeholder="Enter number">
+                    </div>
+                    <div class="mb-3 numberOfCourses">
+                        <p class="settings-form-label">Number of courses:</p>
+                        <input class="form-control" type="number" placeholder="Enter number">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="mdtimepicker.min.js"></script>
+
+    <script>
+        
+
+        
+
+$('.show-action-seeting').on('click',function(){
+    $('.show-action-seeting').hide()
+    $('.send-an-email-box').show()
+})
+
+
+$('.show-email-seeting').on('click',function(){
+    $('.show-email-seeting').hide()
+    $('.email-seeting-box').show()
+})
+
+$('.show-email-schedule').on('click',function(){
+    $('.show-email-schedule').hide()
+    $('.email-schedule-box').show()
+})
+
+
+$('.show-email-attachment').on('click',function(){
+    $('.show-email-attachment').hide()
+    $('.email-attachment-box').show()
+})
+
+
+$(document).ready(function(){
+    $('#scedulertimepicker').mdtimepicker(); 
+});
+
+$('#scedulertimepicker').mdtimepicker().on('timechanged', function(e){
+    console.log(e.value);
+    console.log(e.time); 
+})
+
+$('#scedulertimepicker').mdtimepicker('setValue','12:30 PM');
+
+
+toggleRecommendations();
+
+// Checkbox change event
+$('#journey-reccom-post, #journey-reccom-courses').change(function () {
+    toggleRecommendations();
+});
+
+
+function toggleRecommendations() {
+    var postCheckbox = $('#journey-reccom-post');
+    var coursesCheckbox = $('#journey-reccom-courses');
+    var numberOfPosts = $('.numberOfPosts');
+    var numberOfCourses = $('.numberOfCourses');
+
+    if (postCheckbox.is(':checked')) {
+        numberOfPosts.show()
+    } else {
+        numberOfPosts.hide()
+    }
+
+    if (coursesCheckbox.is(':checked')) {
+        numberOfCourses.show()
+    } else {
+        numberOfCourses.hide()
+    }
+}
+
+
+
+// Bind change event to #journey-start-select
+$('#journey-start-select').change(function () {
+    var selectValue = $('#journey-start-select').val();
+    var showActionSetting = $('.show-action-seeting');
+
+    // Check if the value is not the default "Select" option
+    if (selectValue !== "Select") {
+        showActionSetting.show();
+    } else {
+        showActionSetting.hide();
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
