@@ -71,10 +71,8 @@
                     <select class="form-control select-action-select">
                         <option name="select" selected>Select an option</option>
                         <option name="email">Send email</option>
-                        <option name="action2">Action2</option>
-                        <option name="action3">Action3</option>
-                        <option disabled>Action4</option>
-                        <option disabled>Action5</option>
+                        <option name="action2" disabled>Action2</option>
+                        <option name="action3" disabled>Action3</option>
                     </select>
                 </div>
 
@@ -82,14 +80,14 @@
                     <div><i class="fas fa-plus"></i></div>
                     <p>Add email details</p>
                 </div>
-                <!-- <div class="show-seetings-box show-action2-seeting">
+                <div class="show-seetings-box show-action2-seeting">
                     <div><i class="fas fa-plus"></i></div>
                     <p>Add action2 details</p>
                 </div>
                 <div class="show-seetings-box show-action3-seeting">
                     <div><i class="fas fa-plus"></i></div>
                     <p>Add action3 details</p>
-                </div> -->
+                </div>
 
 
             </div>
@@ -104,7 +102,7 @@
                 <div class="settings-form">
                     <div class="mb-3">
                         <p class="settings-form-label">Sender email address:</p>
-                        <input class="form-control" type="text" placeholder="example@xyz.com">
+                        <input class="form-control" type="text" value="info@ray-bolivar-sosa.es">
                     </div>
                     <div class="mb-3">
                         <p class="settings-form-label">Enter email subject:</p>
@@ -132,7 +130,7 @@
                         <p class="settings-form-label">Choose how often you want to send the email:</p>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="daySchedule">Only one time 
+                                <input type="radio" class="form-check-input" checked name="daySchedule">Only one time 
                             </label>
                         </div>
                         <div class="form-check">
@@ -195,6 +193,9 @@
                 </div>
 
             </div> -->
+
+
+
         </div>
 
 
@@ -292,7 +293,38 @@ $('#journey-start-select').change(function () {
 
 
 
+    // Check the initial value of .select-action-select
+    toggleShowSettings();
 
+    // Bind change event to .select-action-select
+    $('.select-action-select').change(function () {
+        toggleShowSettings();
+    });
+
+    function toggleShowSettings() {
+        var selectValue = $('.select-action-select').val();
+        var selectedOption = $('.select-action-select option:selected');
+        var showEmailSetting = $('.show-email-seeting');
+        var showAction2Setting = $('.show-action2-seeting');
+        var showAction3Setting = $('.show-action3-seeting');
+
+
+
+        // Check the name attribute of the selected option and show the corresponding setting box
+        if (selectedOption.attr('name') === "email") {
+            showEmailSetting.show();
+            showAction2Setting.hide();
+            showAction3Setting.hide();
+        } else if (selectedOption.attr('name') === "action2") {
+            showEmailSetting.hide();
+            showAction2Setting.show();
+            showAction3Setting.hide();
+        } else if (selectedOption.attr('name') === "action3") {
+            showEmailSetting.hide();
+            showAction2Setting.hide();
+            showAction3Setting.show();
+        }
+    }
 
 
 
