@@ -136,6 +136,15 @@
     min-width: 60px;
     margin-top: 20px;
 }
+.templet-preview-btn {
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 0;
+    font-weight: 600;
+    width: 100%;
+}
 
 .email-seeting-box{
     display: none;
@@ -171,13 +180,43 @@
 }
 
 
-
+.numberOfPosts,
+.numberOfCourses,
 .email-schedule-box,
 .email-attachment-box,
-.show-action-seeting,
-.show-email-seeting,
-.show-action2-seeting,
-.show-action3-seeting
+.email-templet-box
 {
     display: none;
+}
+
+
+
+
+
+.email-templet-preview{
+    position: fixed;
+    width: 100%;
+    padding: 50px 0;
+    background-color: #000000a1;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    height: 100%;
+    overflow: auto;
+    /* display: none; */
+}
+.email-templet-preview .email-templet-preview-inner{
+    width: 95%;
+    margin: auto;
+    background: #fff;
+    position: relative;
+    max-width: 800px;
+}
+.email-templet-preview .email-templet-preview-inner .fa-times{
+    position: absolute;
+    right: -30px;
+    top: 0;
+    color: red;
+    cursor: pointer;
+    font-size: 20px;
 }

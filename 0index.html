@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="Description" content="Enter your description here" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="stylesheet" href="style.css" />
+        <!-- time picker -->
+        <link href="mdtimepicker.min.css" rel="stylesheet" />
+        <title>Layer email system</title>
+    </head>
+    <body>
+        <div class="journey-wraper container-fluid">
+            <div class="journey-header">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <input type="text" class="journey-name-input" value="Untitled" />
+                            <div class="status">Draft</div>
+                        </div>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button class="btn journey-save-btn">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="journey-body">
+                <div class="journey-box">
+                    <div class="journey-box-header">
+                        <h5><i class="fas fa-hand-point-right mr-2"></i>Journey entry</h5>
+                    </div>
+                    <div class="journey-box-body">
+                        <div>
+                            <p class="settings-form-label">Choose how to start the journey:</p>
+                            <select id="journey-start-select" class="form-control">
+                                <option selected>Select an option</option>
+                                <option>When enter on layer 1</option>
+                                <option>When enter on layer 2</option>
+                                <option>When enter on layer 3</option>
+                                <option>When enter on layer 4</option>
+                                <option>When enter on layer 5</option>
+                                <option>If inactive for 24 hours</option>
+                                <option>If inactive for 48 hours</option>
+                                <option>If inactive for 7 days</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="show-seetings-box show-action-seeting">
+                        <div><i class="fas fa-plus"></i></div>
+                        <p>Add an action</p>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="journey-box-settings-box send-an-email-box">
+                    <div class="journey-box-header py-3">
+                        <h6><i class="fas fa-bolt mr-2"></i>Action</h6>
+                    </div>
+                    <div class="settings-form">
+                        <p class="settings-form-label">Choose how to start the journey:</p>
+                        <select class="form-control select-action-select">
+                            <option selected>Select an option</option>
+                            <option>Send email</option>
+                        </select>
+                    </div>
+
+                    <div class="show-seetings-box show-email-seeting">
+                        <div><i class="fas fa-plus"></i></div>
+                        <p>Add email details</p>
+                    </div>
+                </div>
+
+                <!-- Email details -->
+                <div class="layer-email-options">
+                    <div class="journey-box-settings-box email-seeting-box">
+                        <div class="journey-box-header py-3">
+                            <h6><i class="fas fa-info-circle mr-2"></i>Email details</h6>
+                        </div>
+                        <div class="settings-form">
+                            <div class="mb-3">
+                                <p class="settings-form-label">Sender email address:</p>
+                                <input class="form-control" type="text" value="info@ray-bolivar-sosa.es" />
+                            </div>
+                            <div class="mb-3">
+                                <p class="settings-form-label">Enter email subject:</p>
+                                <input class="form-control" type="text" placeholder="Subject" />
+                            </div>
+                        </div>
+                        <div class="show-seetings-box show-templet-box">
+                            <div><i class="fas fa-plus"></i></div>
+                            <p>Add templet details</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-box-settings-box email-templet-box">
+                        <div class="journey-box-header py-3">
+                            <h6><i class="far fa-object-group mr-2"></i>Templet details</h6>
+                        </div>
+                        <div class="settings-form">
+                            <div class="mb-4">
+                                <p class="settings-form-label">Enter title:</p>
+                                <input class="form-control" type="text" placeholder="Title" />
+                            </div>
+                            <div class="mb-4">
+                                <p class="settings-form-label">Cover image:</p>
+                                <input class="form-control mb-2" type="file" />
+                                <input class="form-control" type="text" placeholder="Image link" />
+                            </div>
+                            <div class="mb-4">
+                                <p class="settings-form-label">Button:</p>
+                                <input class="form-control mb-2" type="text" placeholder="Button text" />
+                                <input class="form-control" type="text" placeholder="Button link" />
+                            </div>
+                            <div class="mb-4">
+                                <p class="settings-form-label">Enter description:</p>
+                                <textarea class="form-control" placeholder="Description"></textarea>
+                            </div>
+                            <button class="btn templet-preview-btn">Preview templet</button>
+                        </div>
+                        
+                        <div class="show-seetings-box show-email-schedule">
+                            <div><i class="fas fa-plus"></i></div>
+                            <p>Add email schedule</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-box-settings-box email-schedule-box">
+                        <div class="journey-box-header py-3">
+                            <h6><i class="fas fa-clock mr-2"></i>Schedule</h6>
+                        </div>
+                        <div class="settings-form">
+                            <div class="mb-3">
+                                <p class="settings-form-label">Choose how often you want to send the email:</p>
+                                <div class="form-check">
+                                    <label class="form-check-label"> <input type="radio" class="form-check-input" checked name="daySchedule" />Only one time </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label"> <input type="radio" class="form-check-input" name="daySchedule" />Everyday </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label"> <input type="radio" class="form-check-input" name="daySchedule" />Every week </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label"> <input type="radio" class="form-check-input" name="daySchedule" />Every month </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <p class="settings-form-label">Set the time user recieve the email:</p>
+                                <input type="text" id="scedulertimepicker" />
+                            </div>
+                        </div>
+                        <div class="show-seetings-box show-email-attachment">
+                            <div><i class="fas fa-plus"></i></div>
+                            <p>Add recommandations</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-box-settings-box email-attachment-box">
+                        <div class="journey-box-header py-3">
+                            <h6><i class="fas fa-paperclip mr-2"></i>Recommendations</h6>
+                        </div>
+                        <div class="settings-form">
+                            <div class="mb-3">
+                                <p class="settings-form-label">What you want to recommand with email:</p>
+                                <div class="form-check">
+                                    <label class="form-check-label"> <input id="journey-reccom-post" type="checkbox" class="form-check-input" value="post" />Posts </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label"> <input id="journey-reccom-courses" type="checkbox" class="form-check-input" value="course" />Courses </label>
+                                </div>
+                            </div>
+                            <div class="mb-3 numberOfPosts">
+                                <p class="settings-form-label">Number of posts:</p>
+                                <input class="form-control" min="1" type="number" placeholder="Enter number" />
+                            </div>
+                            <div class="mb-3 numberOfCourses">
+                                <p class="settings-form-label">Number of courses:</p>
+                                <input class="form-control" min="1" type="number" placeholder="Enter number" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+<div class="email-templet-preview">
+    <div class="email-templet-preview-inner">
+        <i class="fas fa-times"></i>
+        <div>
+            <table border="0" cellpadding="0" cellspacing="0" align="center" id="m_2306640010947702914x_m_-4990546393999617326container">
+                <tbody>
+                    <tr>
+                        <td width="100%" style="min-width: 100%">
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; display: block">
+                                <tbody>
+                                    <tr>
+                                        <td width="100%" align="center" style="display: block; text-align: center; vertical-align: top; font-size: 16; min-width: 100%">
+                                            <table align="center" width="100%" border="0" cellpadding="38px 0px 38px 0px" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <a href="https://escuela-ray-bolivar-sosa.com/" target="_blank">
+                                                                <img style="margin-left: -50px;" width="300" height="auto" border="0" src="https://escuela-ray-bolivar-sosa.com/newtheme/images/Copy-of-Ray-6.png" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <p style="font-size: 18px;margin: 0;font-weight: 500;">Esperamos que este correo electrónico te encuentre bien. 🌟 Noticias emocionantes: ¡acabamos de publicar una nueva publicación que creemos que te encantará!</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table align="center" width="560" border="0" cellspacing="0" cellpadding="0" style="width: 100%; max-width: 560px">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center" style="padding-top: 20px">
+                                                            <a href="#" target="_blank"
+                                                                ><img
+                                                                    style="max-height: 300px; object-fit: cover"
+                                                                    width="100%"
+                                                                    alt=""
+                                                                    style="width: 100%; max-width: 560px; display: block;"
+                                                                    src="https://escuela-ray-bolivar-sosa.com/test/uploads/1701341844.elviaje_.jpg"
+                                                            /></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table align="center" width="560" border="0" cellspacing="0" cellpadding="0" style="width: 100%; max-width: 560px">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="left" style="font-size: 40px; line-height: 60px; font-family: serif; padding-top: 40px">
+                                                                            <strong class="email-1-title" style="color: #7d1547 !important"
+                                                                                >Cómo escribir historias exitosas: los ganchos y el viaje del héroe</strong
+                                                                            >
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="email-1-des" align="left" style="font-size: 20px; line-height: 24px; color: #000000; padding-top: 21px">
+                                                                            Los ganchos son esenciales para captar la atención del lector. El viaje del héroe es una estructura narrativa efectiva para crear una historia más atractiva y satisfactoria.
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            
+                                            <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center" valign="top" style="padding: 42px 0px 30px 0px">
+                                                            <table cellpadding="0" cellspacing="0" border="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="center" valign="top" style="text-align: center; vertical-align: middle; background-color: #000000; height: 50px">
+                                                                            <a
+                                                                                href="#"
+                                                                                style="
+                                                                                    background-color: #000000;
+                                                                                    color: #ffffff;
+                                                                                    display: inline-block;
+                                                                                    font-size: 16px;
+                                                                                    line-height: 28px;
+                                                                                    padding: 13px 27px;
+                                                                                    text-align: center;
+                                                                                    text-decoration: none;
+                                                                                    border: 1px solid #000000;
+                                                                                "
+                                                                                target="_blank"
+                                                                                >LEER AHORA</a
+                                                                            >
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="560" style="width: 100%; max-width: 560px">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="left" style="padding: 30px 0 30px 0; font-size: 18px; line-height: 28px; text-align: left;border-top: 1px solid #0000004d;">
+                                                            <p style="text-decoration: none; font-size: 22px; line-height: 28px; color: #000000;text-align: center;font-weight: 500;">Publicaciones similares que te pueden gustar</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="582" style="width: 100%; max-width: 582px">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="3" align="center">
+        
+        
+                                                            <div style="display: inline-block">
+                                                                <table cellpadding="0" cellspacing="0" border="0" align="left">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="165" style="padding: 0px 9px 20px 9px">
+                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="display: block">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td style="display: block">
+                                                                                                <a href="#" style="text-decoration: none !important; color: #000000" target="_blank"
+                                                                                                    ><img
+                                                                                                        alt=""
+                                                                                                        width="165"
+                                                                                                        style="width: 100%; max-width: 165px; height: auto; display: block"
+                                                                                                        src="https://escuela-ray-bolivar-sosa.com/test/uploads/1701260612.escritor_fracaso.jpg"
+                                                                                                /></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="display: block; border-bottom: 1px solid #d9dadd">
+                                                                                    <tbody>
+                                                                                        <tr height="88">
+                                                                                            <td
+                                                                                                width="380"
+                                                                                                valign="top"
+                                                                                                style="
+                                                                                                    text-align: left;
+                                                                                                    padding: 4px 0px 0px 0px;
+                                                                                                    font-size: 16px;
+                                                                                                    line-height: 20px;
+                                                                                                    color: #000000;
+                                                                                                    word-wrap: break-word;
+                                                                                                "
+                                                                                            >
+                                                                                                <a href="#" style="text-decoration: none" target="_blank"
+                                                                                                    ><span style="color: #000000; text-decoration: none"
+                                                                                                        >¿Quieres triunfar con tu novela? Si es así, es importante</span></a
+                                                                                                >
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td
+                                                                                                valign="top"
+                                                                                                align="left"
+                                                                                                style="text-align: left; padding: 0px 0px 15px 0px; font-size: 12px; color: #717171; text-decoration: none"
+                                                                                            >
+                                                                                                <img
+                                                                                                    width="90"
+                                                                                                    height="auto"
+                                                                                                    src="starts.png"
+                                                                                                />
+                                                                                                <span style="color: #666666">4.5</span>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div style="display: inline-block">
+                                                                <table cellpadding="0" cellspacing="0" border="0" align="left">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="165" style="padding: 0px 9px 20px 9px">
+                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="display: block">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td style="display: block">
+                                                                                                <a href="#" style="text-decoration: none !important; color: #000000" target="_blank"
+                                                                                                    ><img
+                                                                                                        alt=""
+                                                                                                        width="165"
+                                                                                                        style="width: 100%; max-width: 165px; height: auto; display: block"
+                                                                                                        src="https://escuela-ray-bolivar-sosa.com/test/uploads/1701609778.libro_abierto_.jpg"
+                                                                                                /></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="display: block; border-bottom: 1px solid #d9dadd">
+                                                                                    <tbody>
+                                                                                        <tr height="88">
+                                                                                            <td
+                                                                                                width="380"
+                                                                                                valign="top"
+                                                                                                style="
+                                                                                                    text-align: left;
+                                                                                                    padding: 4px 0px 0px 0px;
+                                                                                                    font-size: 16px;
+                                                                                                    line-height: 20px;
+                                                                                                    color: #000000;
+                                                                                                    word-wrap: break-word;
+                                                                                                "
+                                                                                            >
+                                                                                                <a href="#" style="text-decoration: none" target="_blank"
+                                                                                                    ><span style="color: #000000; text-decoration: none"
+                                                                                                        >Cómo crear libros que hagan sentir a los lectores: 5 técnicas clave
+                                                                                                    </span></a
+                                                                                                >
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td
+                                                                                                valign="top"
+                                                                                                align="left"
+                                                                                                style="text-align: left; padding: 0px 0px 15px 0px; font-size: 12px; color: #717171; text-decoration: none"
+                                                                                            >
+                                                                                                <img
+                                                                                                    width="90"
+                                                                                                    height="auto"
+                                                                                                    src="starts.png"
+                                                                                                />
+                                                                                                <span style="color: #666666">4.9</span> 
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div style="display: inline-block">
+                                                                <table cellpadding="0" cellspacing="0" border="0" align="left">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="165" style="padding: 0px 9px 20px 9px">
+                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="display: block">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td style="display: block">
+                                                                                                <a href="#" style="text-decoration: none !important; color: #000000" target="_blank"
+                                                                                                    ><img
+                                                                                                        alt=""
+                                                                                                        width="165"
+                                                                                                        style="width: 100%; max-width: 165px; height: auto; display: block"
+                                                                                                        src="https://escuela-ray-bolivar-sosa.com/test/uploads/1701864886.libro_abiertoybombilla_.jpg"
+                                                                                                /></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="display: block; border-bottom: 1px solid #d9dadd">
+                                                                                    <tbody>
+                                                                                        <tr height="88">
+                                                                                            <td
+                                                                                                width="380"
+                                                                                                valign="top"
+                                                                                                style="
+                                                                                                    text-align: left;
+                                                                                                    padding: 4px 0px 0px 0px;
+                                                                                                    font-size: 16px;
+                                                                                                    line-height: 20px;
+                                                                                                    color: #000000;
+                                                                                                    word-wrap: break-word;
+                                                                                                "
+                                                                                            >
+                                                                                                <a href="#" style="text-decoration: none" target="_blank"
+                                                                                                    ><span style="color: #000000; text-decoration: none"
+                                                                                                        >¿Titanic y Pulp Fiction siguen el viaje del héroe?
+                                                                                                    </span></a
+                                                                                                >
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td
+                                                                                                valign="top"
+                                                                                                align="left"
+                                                                                                style="text-align: left; padding: 0px 0px 15px 0px; font-size: 12px; color: #717171; text-decoration: none"
+                                                                                            >
+                                                                                                <img
+                                                                                                    width="90"
+                                                                                                    height="auto"
+                                                                                                    src="starts.png"
+                                                                                                />
+                                                                                                <span style="color: #666666">4.9</span> 
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+        
+
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="yj6qo"></div>
+            <div class="adL"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+        <script src="mdtimepicker.min.js"></script>
+
+        <script>
+
+
+
+
+            $('.email-templet-preview-inner .fa-times').on('click', function(){
+                $('.email-templet-preview').hide()
+            })
+
+            $('.templet-preview-btn').on('click', function(){
+                $('.email-templet-preview').show()
+                $("body").css("overflow", "hidden")
+            })
+
+
+
+
+
+
+
+
+
+            function showAllEmailOPtions(){
+                $('.layer-email-options .journey-box-settings-box').show()
+                $('.send-an-email-box').show()
+                $(".show-seetings-box").hide();
+            }
+
+
+
+
+
+
+
+
+
+
+            $(".show-action-seeting").on("click", function () {
+                $(".show-action-seeting").hide();
+                $(".send-an-email-box").show();
+            });
+
+            $(".show-email-seeting").on("click", function () {
+                $(".show-email-seeting").hide();
+                $(".email-seeting-box").show();
+                $(".layer-email-options").show();
+            });
+
+            $(".show-email-schedule").on("click", function () {
+                $(".show-email-schedule").hide();
+                $(".email-schedule-box").show();
+            });
+
+            $(".show-email-attachment").on("click", function () {
+                $(".show-email-attachment").hide();
+                $(".email-attachment-box").show();
+            });
+
+            $(".show-templet-box").on("click", function () {
+                $(".show-templet-box").hide();
+                $(".email-templet-box").show();
+            });
+
+            $(document).ready(function () {
+                $("#scedulertimepicker").mdtimepicker();
+            });
+
+            $("#scedulertimepicker")
+                .mdtimepicker()
+                .on("timechanged", function (e) {
+                    console.log(e.value);
+                    console.log(e.time);
+                });
+
+            $("#scedulertimepicker").mdtimepicker("setValue", "12:30 PM");
+
+            $("#journey-reccom-post, #journey-reccom-courses").change(function () {
+                var postCheckbox = $("#journey-reccom-post");
+                var coursesCheckbox = $("#journey-reccom-courses");
+                var numberOfPosts = $(".numberOfPosts");
+                var numberOfCourses = $(".numberOfCourses");
+
+                if (postCheckbox.is(":checked")) {
+                    numberOfPosts.show();
+                } else {
+                    numberOfPosts.hide();
+                }
+
+                if (coursesCheckbox.is(":checked")) {
+                    numberOfCourses.show();
+                } else {
+                    numberOfCourses.hide();
+                }
+            });
+        </script>
+    </body>
+</html>
