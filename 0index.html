@@ -19,8 +19,19 @@
                     <div class="col-6">
                         <div class="d-flex align-items-center">
                             <input type="text" class="journey-name-input" value="Untitled" />
-                            <div class="status">Draft</div>
+                            <!-- <div class="status">Draft</div> -->
+                            <div class="checkbox-wrapper-35 ml-5">
+                                <input value="private" name="switch" id="switch" type="checkbox" class="switch">
+                                <label for="switch">
+                                <span class="switch-x-text">Journey is </span>
+                                <span class="switch-x-toggletext">
+                                    <span class="switch-x-unchecked"><span class="switch-x-hiddenlabel">Unchecked: </span>Inactive</span>
+                                    <span class="switch-x-checked"><span class="switch-x-hiddenlabel">Checked: </span>Active</span>
+                                </span>
+                                </label>
+                            </div>
                         </div>
+
                     </div>
                     <div class="col-6 text-right">
                         <button class="btn journey-save-btn">Save</button>
@@ -546,6 +557,7 @@
 
             $('.email-templet-preview-inner .fa-times').on('click', function(){
                 $('.email-templet-preview').hide()
+                $("body").css("overflow", "auto")
             })
 
             $('.templet-preview-btn').on('click', function(){
