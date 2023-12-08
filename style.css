@@ -203,7 +203,7 @@
     z-index: 999;
     height: 100%;
     overflow: auto;
-    /* display: none; */
+    display: none;
 }
 .email-templet-preview .email-templet-preview-inner{
     width: 95%;
